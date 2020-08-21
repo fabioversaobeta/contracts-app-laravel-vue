@@ -1,5 +1,5 @@
 # v2 syntax
-version: '2'
+version: '3'
 
 # Named volumes
 volumes:
