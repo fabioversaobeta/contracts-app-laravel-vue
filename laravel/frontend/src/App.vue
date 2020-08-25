@@ -1,12 +1,31 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
+        <MenuLeft />
+        <div class="main">
+            <Header />
+            <Navegation />
+            <router-view />
         </div>
-        <router-view />
     </div>
 </template>
+
+<script>
+import MenuLeft from "@/modules/Layout/components/MenuLeft/MenuLeft";
+import Header from "@/modules/Layout/components/Header/Header";
+import Navegation from "@/modules/Layout/components/Navegation/Navegation";
+
+export default {
+    name: "App",
+    components: {
+        MenuLeft,
+        Header,
+        Navegation
+    },
+    data() {
+        return {};
+    }
+};
+</script>
 
 <style lang="scss">
 #app {
