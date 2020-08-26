@@ -2,8 +2,8 @@
     <div class="breadcrumb">
         <div class="content">
             <div id="nav">
-                <router-link to="/">Pedidos</router-link> |
-                <router-link to="/about">Produtos</router-link>
+                <router-link to="/">Imóveis</router-link> |
+                <router-link to="/about">Contratos</router-link>
             </div>
         </div>
     </div>
