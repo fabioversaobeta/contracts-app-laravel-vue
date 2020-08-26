@@ -1,14 +1,17 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+// import Dashboard from "../views/Dashboard/Dashboard.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
     {
         path: "/",
-        name: "Home",
-        component: Home
+        name: "Dashboard",
+        // component: Dashboard
+        component: () => import(
+            /* webpackChunkName: "dashboard" */ "../views/Dashboar/Dashboard.vue"
+        )
     },
     {
         path: "/about",

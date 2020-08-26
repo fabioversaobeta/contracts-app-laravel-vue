@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <MenuLeft />
+        <Menu />
         <div class="main">
             <Header />
             <Navegation />
@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import MenuLeft from "@/modules/Layout/components/MenuLeft/MenuLeft";
+import Menu from "@/modules/Layout/components/Menu/Menu";
 import Header from "@/modules/Layout/components/Header/Header";
 import Navegation from "@/modules/Layout/components/Navegation/Navegation";
 
 export default {
     name: "App",
     components: {
-        MenuLeft,
+        Menu,
         Header,
         Navegation
     },
@@ -32,20 +32,15 @@ export default {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+
+    width: 100%;
+    display: flex;
 }
 
-#nav {
-    padding: 30px;
-
-    a {
-        font-weight: bold;
-        color: #2c3e50;
-
-        &.router-link-exact-active {
-            color: #42b983;
-        }
-    }
+.main {
+    width: 100%;
+    position: relative;
+    background: #343a40;
+    flex: 1;
 }
 </style>
