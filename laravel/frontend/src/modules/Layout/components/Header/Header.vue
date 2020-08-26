@@ -1,13 +1,13 @@
 <template>
     <div class="header">
         <div class="content">
-            <div class="representative">
-                <div class="avatar">R</div>
-                <span class="name">Representante</span>
+            <div class="user">
+                <div class="avatar">U</div>
+                <span class="name">User</span>
             </div>
             <div class="buttons">
                 <button class="new-order">
-                    <v-icon name="plus-circle"></v-icon> Novo Pedido
+                    <v-icon name="plus-circle"></v-icon> Novo Imóvel
                 </button>
                 <!-- <button class="new-product" v-if="$route.name === 'Products'">
             New Product

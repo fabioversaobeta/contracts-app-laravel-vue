@@ -10,7 +10,7 @@ const routes: Array<RouteConfig> = [
         name: "Dashboard",
         // component: Dashboard
         component: () => import(
-            /* webpackChunkName: "dashboard" */ "../views/Dashboar/Dashboard.vue"
+            /* webpackChunkName: "dashboard" */ "../views/Dashboard/Dashboard.vue"
         )
     },
     {
