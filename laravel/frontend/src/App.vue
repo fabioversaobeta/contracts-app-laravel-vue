@@ -1,25 +1,21 @@
 <template>
     <div id="app">
-        <Menu />
-        <div class="main">
-            <Header />
-            <Navegation />
-            <router-view />
-        </div>
+        <Header />
+        <Breadcrumb />
+
+        <router-view />
     </div>
 </template>
 
 <script>
-import Menu from "@/modules/Layout/components/Menu/Menu";
 import Header from "@/modules/Layout/components/Header/Header";
-import Navegation from "@/modules/Layout/components/Navegation/Navegation";
+import Breadcrumb from "@/modules/Layout/components/Breadcrumb/Breadcrumb";
 
 export default {
     name: "App",
     components: {
-        Menu,
         Header,
-        Navegation
+        Breadcrumb
     },
     data() {
         return {};
@@ -29,18 +25,14 @@ export default {
 
 <style lang="scss">
 #app {
+    width: 100%;
+    background: #ffffff;
+
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    width: 100%;
-    display: flex;
+    text-align: center;
+    color: #2c3e50;
 }
 
-.main {
-    width: 100%;
-    position: relative;
-    background: #343a40;
-    flex: 1;
-}
 </style>
