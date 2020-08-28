@@ -14,15 +14,16 @@ class CreateProperties extends Migration
     public function up()
     {
         Schema::create('properties', function (Blueprint $table) {
-            $table->increments('id');
+            // $table->increments('id');
+            $table->uuid('id')->primary();
             $table->string('email', 200);
             $table->string('street', 200);
             $table->string('number', 200);
-            $table->string('complement', 200);
+            $table->string('complement', 200)->nullable();
             $table->string('district', 200);
             $table->string('city', 200);
             $table->string('state', 200);
-            $table->integer('contract_id')->unsigned()->index();
+            $table->integer('contract_id')->unsigned()->nullable()->index();
             $table->foreign('contract_id')->references('id')->on('contracts');
             $table->softDeletes();
             $table->timestamps();
