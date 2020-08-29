@@ -3,25 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Services\ShowContractorService;
+use App\Services\ShowContractorService;
 use App\Services\Contractor\CreateContractorService;
 
 class ContractorController extends Controller
 {
     public function __construct(
-        // ShowContractorsService $showContractorsService,
+        ShowContractorsService $showContractorsService,
         CreateContractorService $createContractorService
     )
     {
-        // $this->showContractorsService = $showContractorsService;
+        $this->showContractorsService = $showContractorsService;
         $this->createContractorService = $createContractorService;
     }
 
     // SHOW
     public function show()
     {
-        // $dados = $showContractorsService->showContractors();
-        $dados = [];
+        $dados = $showContractorsService->showContractors();
+
         return response(json_encode($dados), 200);
     }
 

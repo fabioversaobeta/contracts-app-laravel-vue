@@ -2,16 +2,16 @@
 
 namespace App\Services\Contractor;
 
-use App\Repositories\ContractorRepository;
+use App\Repositories\Contractor\ContractorRepositoryInterface;
 use Exception;
 
 class ShowContractorsService
 {
     protected $repository;
 
-    public function __construct()
+    public function __construct(ContractorRepositoryInterface $repository)
     {
-        $this->repository  = new ContractorRepository();
+        $this->repository = $repository;
     }
 
     public function showContractors() {

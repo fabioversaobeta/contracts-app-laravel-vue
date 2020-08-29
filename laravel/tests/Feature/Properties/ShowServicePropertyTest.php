@@ -12,13 +12,19 @@ use Tests\TestCase;
 
 class ShowServicePropertyTest extends TestCase
 {
+    protected $repository;
+
     public function setUp() : void
     {
         parent::setUp();
 
-        $repository = new FakePropertyRepository();
-        $this->createPropertyService = new CreatePropertyService($repository);
-        $this->showPropertiesService = new ShowPropertiesService($repository);
+        $this->repository = new FakePropertyRepository();
+        $this->createPropertyService = new CreatePropertyService(
+            $this->repository
+        );
+        $this->showPropertiesService = new ShowPropertiesService(
+            $this->repository
+        );
     }
     /**
      * A basic feature test example.
@@ -37,7 +43,7 @@ class ShowServicePropertyTest extends TestCase
             "state": "PR"
         }');
 
-        $this->createPropertyService->createProperty($data);
+        $this->repository->save($data);
 
         $data = (array) json_decode('{
             "email": "fabio_versao_beta@hotmail.com",
@@ -49,7 +55,7 @@ class ShowServicePropertyTest extends TestCase
             "state": "PR"
         }');
 
-        $this->createPropertyService->createProperty($data);
+        $this->repository->save($data);
 
         $properties = $this->showPropertiesService->showProperties();
 

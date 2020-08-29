@@ -17,5 +17,6 @@ $router->group(['prefix' => 'property'], function() use ($router) {
 });
 
 $router->group(['prefix' => 'contractor'], function() use ($router) {
+    $router->get('/', 'ContractorController@show');
     $router->post('/', 'ContractorController@create');
 });
