@@ -20,11 +20,7 @@ class DeleteServicePropertyTest extends TestCase
         $this->deletePropertyService = new DeletePropertyService($repository);
         $this->showPropertiesService = new ShowPropertiesService($repository);
     }
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+
     public function testDeleteProperty()
     {
         $data = (array) json_decode('{
@@ -47,5 +43,12 @@ class DeleteServicePropertyTest extends TestCase
             0,
             $properties, "testDeleteProperties doesn't contain 0 elements"
         );
+    }
+
+    public function testDeleteNoIdFoundProperty()
+    {
+        $this->expectException("Exception");
+
+        $this->deletePropertyService->deleteProperty('any-id-inexist');
     }
 }

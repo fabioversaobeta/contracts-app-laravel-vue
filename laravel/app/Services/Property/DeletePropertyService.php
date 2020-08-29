@@ -18,7 +18,7 @@ class DeletePropertyService
     public function deleteProperty($id) {
         $property = $this->repository->find($id);
 
-        if (sizeof($property) == 0) {
+        if ($property == null) {
             throw new Exception("ID de propriedade não encontrado", 1);
         }
 

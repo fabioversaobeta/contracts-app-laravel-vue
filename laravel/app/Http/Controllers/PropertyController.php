@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\Property\CreatePropertyService;
 use App\Services\Property\ShowPropertiesService;
+use App\Services\Property\DeletePropertyService;
 
 class PropertyController extends Controller
 {
     public function __construct(
         CreatePropertyService $createPropertyService,
-        ShowPropertiesService $showPropertiesService
+        ShowPropertiesService $showPropertiesService,
+        DeletePropertyService $deletePropertyService
     ) {
         $this->createPropertyService = $createPropertyService;
         $this->showPropertiesService = $showPropertiesService;
+        $this->deletePropertyService = $deletePropertyService;
     }
 
     // SHOW
@@ -43,14 +46,14 @@ class PropertyController extends Controller
     }
 
     // DELETE
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
-        if (!$id) {
+        if (!is_string($id)) {
             return response("ID don't exist", 500);
         }
 
         $this->deletePropertyService->deleteProperty($id);
 
-        return response('', 206);
+        return response(json_encode([]), 204);
     }
 }

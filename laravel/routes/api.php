@@ -33,12 +33,9 @@ $router->group(['prefix' => 'contractor'], function() use ($router) {
 });
 
 $router->group(['prefix' => 'property'], function() use ($router) {
-    // $router->get('/', 'PropertyController@show');
+    $router->get('/', 'PropertyController@show');
     // $router->get('/{id}', 'PropertyController@findById');
     // $router->post('/find', 'PropertyController@find');
     $router->post('/', 'PropertyController@create');
-    // $router->delete('/{id}', 'PropertyController@delete');
-    $router->get('/teste', function(Request $request) {
-        return 'Hello Post';
-    });
+    $router->post('/delete/{id}', 'PropertyController@drop');
 });
