@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Services\Contractor;
+namespace App\Services\Property;
 
-use App\Repositories\ContractorRepository;
+use App\Repositories\Property\PropertyRepositoryInterface;
 use Exception;
 
-class ShowContractorsService
+class ShowPropertiesService
 {
     protected $repository;
 
-    public function __construct()
+    public function __construct(PropertyRepositoryInterface $repository)
     {
-        $this->repository  = new ContractorRepository();
+        $this->repository  = $repository;
     }
 
-    public function showContractors() {
-        $contractors = $this->repository->all();
+    public function showProperties() {
+        $properties = $this->repository->all();
 
-        return $contractors;
+        return $properties;
     }
 }

@@ -13,6 +13,11 @@ class FakePropertyRepository implements PropertyRepositoryInterface
         $this->properties = [];
     }
 
+    public function all()
+    {
+        return $this->properties;
+    }
+
     public function findProperty($data) {
         $findProperties = [];
 

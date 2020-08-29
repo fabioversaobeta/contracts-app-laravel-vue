@@ -4,13 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\Property\CreatePropertyService;
+use App\Services\Property\ShowPropertiesService;
 
 class PropertyController extends Controller
 {
-    public function __construct(CreatePropertyService $createPropertyService)
-    {
+    public function __construct(
+        CreatePropertyService $createPropertyService,
+        ShowPropertiesService $showPropertiesService
+    ) {
         $this->createPropertyService = $createPropertyService;
+        $this->showPropertiesService = $showPropertiesService;
     }
+
+    // SHOW
+    public function show()
+    {
+        $dados = $this->showPropertiesService->showProperties();
+
+        return response(json_encode($dados), 200);
+    }
+
     // CREATE
     public function create(Request $request)
     {
@@ -25,8 +38,6 @@ class PropertyController extends Controller
 
         $contractor = $request->all();
         $dados = $this->createPropertyService->createProperty($contractor);
-
-        // return response()->json($contractor, 200);
 
         return response(json_encode($dados), 201);
     }

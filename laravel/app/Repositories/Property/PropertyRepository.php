@@ -13,7 +13,13 @@ class PropertyRepository implements PropertyRepositoryInterface
         $this->property = $property;
     }
 
-    public function findProperty($data) {
+    public function all()
+    {
+        return $this->property::all();
+    }
+
+    public function findProperty($data)
+    {
         $model = Property::where('street', '=', $data['street'])
             ->where('number', '=', $data['number'])
             ->where('complement', '=', $data['complement'])
