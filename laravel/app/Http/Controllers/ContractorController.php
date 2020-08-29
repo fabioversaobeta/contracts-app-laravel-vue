@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\ShowContractorService;
+use App\Services\Contractor\ShowContractorsService;
 use App\Services\Contractor\CreateContractorService;
 
 class ContractorController extends Controller
@@ -20,7 +20,7 @@ class ContractorController extends Controller
     // SHOW
     public function show()
     {
-        $dados = $showContractorsService->showContractors();
+        $dados = $this->showContractorsService->showContractors();
 
         return response(json_encode($dados), 200);
     }
@@ -44,7 +44,9 @@ class ContractorController extends Controller
     // public function find(FindContractorRequest $request)
     // {
     //     $contractor = $request->input('contractor');
-    //     $dados = $findContractorService->findContractor($contractor->document);
+    //     $dados = $this->findContractorService->findContractor(
+    //         $contractor['document']
+    //     );
 
     //     return response(json_encode($dados), 200);
     // }
