@@ -20,3 +20,8 @@ $router->group(['prefix' => 'contractor'], function() use ($router) {
     $router->get('/', 'ContractorController@show');
     $router->post('/', 'ContractorController@create');
 });
+
+$router->group(['prefix' => 'contract'], function() use ($router) {
+    $router->get('/', 'ContractController@show');
+    $router->post('/', 'ContractController@create');
+});
