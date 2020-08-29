@@ -15,8 +15,8 @@ class CreateContracts extends Migration
     public function up()
     {
         Schema::create('contracts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('contractor_id')->unsigned()->index();
+            $table->uuid('id')->primary();
+            $table->string('contractor_id')->nullable()->index();
             $table->foreign('contractor_id')->references('id')->on('contractors');
             $table->timestamps();
         });

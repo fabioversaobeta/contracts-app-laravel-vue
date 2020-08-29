@@ -23,7 +23,7 @@ class CreateProperties extends Migration
             $table->string('district', 200);
             $table->string('city', 200);
             $table->string('state', 200);
-            $table->integer('contract_id')->unsigned()->nullable()->index();
+            $table->string('contract_id')->nullable()->index();
             $table->foreign('contract_id')->references('id')->on('contracts');
             $table->softDeletes();
             $table->timestamps();

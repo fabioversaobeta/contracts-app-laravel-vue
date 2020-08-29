@@ -2,29 +2,23 @@
 
 namespace App\Services\Contractor;
 
-use App\Repositories\ContractorRepository;
+use App\Repositories\Contractor\ContractorRepositoryInterface;
 use Exception;
 
 class CreateContractorService
 {
     protected $repository;
 
-    public function __construct()
+    public function __construct(ContractorRepositoryInterface $repository)
     {
-        $this->repository  = new ContractorRepository();
+        $this->repository  = $repository;
     }
 
     public function createContractor($data) {
-        $contractor = $this->repository->findByColumn(
-            'document',
-            $data->document
-        );
+        $contractor = $this->repository->findContractor($data['document']);
 
-        if ($contractor) {
-            throw new Exception(
-                "Já existe um contratante utilizando este número de documento"
-                , 1
-            );
+        if ($contractor != null) {
+            throw new Exception("Esse documento já esta sendo utilizado", 1);
         }
 
         $contractor = $this->repository->save($data);

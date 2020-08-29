@@ -15,3 +15,7 @@ $router->group(['prefix' => 'property'], function() use ($router) {
     $router->post('/', 'PropertyController@create');
     $router->delete('/{id}', 'PropertyController@delete');
 });
+
+$router->group(['prefix' => 'contractor'], function() use ($router) {
+    $router->post('/', 'ContractorController@create');
+});

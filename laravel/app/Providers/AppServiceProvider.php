@@ -17,6 +17,11 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Property\PropertyRepositoryInterface',
             'App\Repositories\Property\PropertyRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Contractor\ContractorRepositoryInterface',
+            'App\Repositories\Contractor\ContractorRepository'
+        );
     }
 
     /**

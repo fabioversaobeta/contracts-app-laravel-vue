@@ -3,7 +3,7 @@
 namespace App\Services\Property;
 
 use App\Repositories\Property\PropertyRepositoryInterface;
-use App\Models\Property;
+// use App\Models\Property;
 use Exception;
 
 class CreatePropertyService

@@ -39,8 +39,8 @@ class PropertyController extends Controller
             'state' => 'required'
         ]);
 
-        $contractor = $request->all();
-        $dados = $this->createPropertyService->createProperty($contractor);
+        $property = $request->all();
+        $dados = $this->createPropertyService->createProperty($property);
 
         return response(json_encode($dados), 201);
     }

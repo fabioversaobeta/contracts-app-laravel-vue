@@ -15,7 +15,7 @@ class CreateContractors extends Migration
     public function up()
     {
         Schema::create('contractors', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->string('name', 200);
             $table->string('email', 200);
             $table->string('document', 50);
