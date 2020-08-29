@@ -13,5 +13,5 @@ $router->group(['prefix' => 'property'], function() use ($router) {
     // $router->get('/{id}', 'PropertyController@findById');
     // $router->post('/find', 'PropertyController@find');
     $router->post('/', 'PropertyController@create');
-    // $router->delete('/{id}', 'PropertyController@delete');
+    $router->delete('/{id}', 'PropertyController@delete');
 });

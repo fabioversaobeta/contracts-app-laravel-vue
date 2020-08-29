@@ -41,4 +41,16 @@ class PropertyController extends Controller
 
         return response(json_encode($dados), 201);
     }
+
+    // DELETE
+    public function delete($id)
+    {
+        if (!$id) {
+            return response("ID don't exist", 500);
+        }
+
+        $this->deletePropertyService->deleteProperty($id);
+
+        return response('', 206);
+    }
 }

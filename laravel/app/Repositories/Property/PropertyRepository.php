@@ -18,6 +18,11 @@ class PropertyRepository implements PropertyRepositoryInterface
         return $this->property::all();
     }
 
+    public function find($id)
+    {
+        return $model = $this->property::find($id);
+    }
+
     public function findProperty($data)
     {
         $model = Property::where('street', '=', $data['street'])
@@ -44,5 +49,10 @@ class PropertyRepository implements PropertyRepositoryInterface
         }
 
         throw new Exception('Error saving property');
+    }
+
+    public function delete(Property $property)
+    {
+        $property->delete();
     }
 }

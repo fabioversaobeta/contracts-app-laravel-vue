@@ -2,6 +2,7 @@
 namespace App\Repositories\Property;
 
 use App\Repositories\Property\PropertyRepositoryInterface;
+use Exception;
 
 class FakePropertyRepository implements PropertyRepositoryInterface
 {
@@ -16,6 +17,20 @@ class FakePropertyRepository implements PropertyRepositoryInterface
     public function all()
     {
         return $this->properties;
+    }
+
+    public function find($id)
+    {
+        // return array_get($this->properties, "id.$id");
+        $property = null;
+
+        foreach ($this->properties as $key => $value) {
+            if ($value['id'] == $id) {
+                $property = $value;
+            }
+        }
+
+        return $property;
     }
 
     public function findProperty($data) {
@@ -47,5 +62,16 @@ class FakePropertyRepository implements PropertyRepositoryInterface
         }
 
         throw new Exception('Error saving property');
+    }
+
+    public function delete($property)
+    {
+        $propertyKey = array_search($property, $this->properties);
+
+        if ($propertyKey == null && $propertyKey != 0) {
+            throw new Exception("ID of property dont exist $propertyKey");
+        }
+
+        unset($this->properties[$propertyKey]);
     }
 }
