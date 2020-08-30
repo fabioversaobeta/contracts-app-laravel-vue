@@ -10,10 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 $router->group(['prefix' => 'property'], function() use ($router) {
     $router->get('/', 'PropertyController@show');
-    // $router->get('/{id}', 'PropertyController@findById');
-    // $router->post('/find', 'PropertyController@find');
     $router->post('/', 'PropertyController@create');
     $router->delete('/{id}', 'PropertyController@delete');
+    $router->put('/{id}/setContract/', 'PropertyController@setContract');
 });
 
 $router->group(['prefix' => 'contractor'], function() use ($router) {

@@ -6,6 +6,8 @@ use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use App\Models\Contract;
+
 class Property extends Model
 {
     use SoftDeletes;
@@ -23,4 +25,9 @@ class Property extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function contract()
+    {
+        return $this->hasOne(Contract::class, 'id', 'contract_id');
+    }
 }

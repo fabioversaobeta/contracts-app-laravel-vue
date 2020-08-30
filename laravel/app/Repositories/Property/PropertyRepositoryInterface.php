@@ -13,5 +13,7 @@ interface PropertyRepositoryInterface
 
     public function save($data);
 
+    public function update($model);
+
     public function delete(Property $property);
 };

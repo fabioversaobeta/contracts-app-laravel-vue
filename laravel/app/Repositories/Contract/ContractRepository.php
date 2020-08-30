@@ -15,7 +15,8 @@ class ContractRepository implements ContractRepositoryInterface
 
     public function all()
     {
-        return $this->contract::all();
+        return Contract::with('contractor')->get();
+        // return $this->contract::all();
     }
 
     public function find($id)

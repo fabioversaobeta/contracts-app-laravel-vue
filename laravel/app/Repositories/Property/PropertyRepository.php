@@ -15,7 +15,8 @@ class PropertyRepository implements PropertyRepositoryInterface
 
     public function all()
     {
-        return $this->property::all();
+        return Property::with('contract')->get();
+        // return $this->property::all();
     }
 
     public function find($id)
@@ -49,6 +50,15 @@ class PropertyRepository implements PropertyRepositoryInterface
         }
 
         throw new Exception('Error saving property');
+    }
+
+    public function update($model)
+    {
+        if ($model->save()) {
+            return $model;
+        }
+
+        throw new Exception('Error updating property');
     }
 
     public function delete(Property $property)

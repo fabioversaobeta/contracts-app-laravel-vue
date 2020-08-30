@@ -64,6 +64,22 @@ class FakePropertyRepository implements PropertyRepositoryInterface
         throw new Exception('Error saving property');
     }
 
+    public function update($model)
+    {
+        $search = $model['id'];
+
+        foreach ($this->properties as $key => $value) {
+            if ($value['id'] == $model['id']) {
+                $propertyKey = $key;
+                break;
+            }
+        }
+
+        $this->properties[$propertyKey] = $model;
+
+        return $model;
+    }
+
     public function delete($property)
     {
         $propertyKey = array_search($property, $this->properties);

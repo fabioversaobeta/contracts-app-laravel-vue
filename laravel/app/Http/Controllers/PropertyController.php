@@ -6,17 +6,20 @@ use Illuminate\Http\Request;
 use App\Services\Property\CreatePropertyService;
 use App\Services\Property\ShowPropertiesService;
 use App\Services\Property\DeletePropertyService;
+use App\Services\Property\SetContractPropertyService;
 
 class PropertyController extends Controller
 {
     public function __construct(
         CreatePropertyService $createPropertyService,
         ShowPropertiesService $showPropertiesService,
-        DeletePropertyService $deletePropertyService
+        DeletePropertyService $deletePropertyService,
+        SetContractPropertyService $setContractPropertyService
     ) {
         $this->createPropertyService = $createPropertyService;
         $this->showPropertiesService = $showPropertiesService;
         $this->deletePropertyService = $deletePropertyService;
+        $this->setContractPropertyService = $setContractPropertyService;
     }
 
     // SHOW
@@ -55,5 +58,20 @@ class PropertyController extends Controller
         $this->deletePropertyService->deleteProperty($id);
 
         return response(json_encode([]), 204);
+    }
+
+    // SET CONTRACT
+    public function setContract(Request $request, $id)
+    {
+        $request->validate([
+            'contract_id' => 'required'
+        ]);
+
+        $contract = $request->all();
+        $dados = $this->setContractPropertyService->setContractProperty(
+            $contract, $id
+        );
+
+        return response(json_encode($dados), 200);
     }
 }
