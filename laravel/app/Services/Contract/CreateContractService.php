@@ -2,21 +2,21 @@
 
 namespace App\Services\Contract;
 
-use App\Repositories\ContractRepository;
+use App\Repositories\Contract\ContractRepositoryInterface;
 use Exception;
 
 class CreateContractService
 {
     protected $repository;
 
-    public function __construct()
+    public function __construct(ContractRepositoryInterface $repository)
     {
-        $this->repository  = new ContractRepository();
+        $this->repository  = $repository;
     }
 
     public function createContract($data) {
-        $contractor = $this->repository->save($data);
+        $contract = $this->repository->save($data);
 
-        return $contractor;
+        return $contract;
     }
 }

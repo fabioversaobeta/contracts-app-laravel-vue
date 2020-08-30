@@ -22,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Contractor\ContractorRepositoryInterface',
             'App\Repositories\Contractor\ContractorRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Contract\ContractRepositoryInterface',
+            'App\Repositories\Contract\ContractRepository'
+        );
     }
 
     /**
