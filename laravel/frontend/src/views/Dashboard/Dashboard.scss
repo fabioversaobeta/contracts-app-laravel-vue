@@ -1,20 +1,10 @@
-.content {
+.dashboard {
     width: 100%;
-    height: 100%;
-
-    padding: 10px 10px;
-
+    height: 70vh;
     background: #ecf0f5;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-items: flex-start;
-}
 
-.content .group {
-    width: 100%;
-    margin-top: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px;
 }
