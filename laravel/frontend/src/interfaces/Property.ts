@@ -1,4 +1,5 @@
 export default interface Property {
+    id: string;
     email: string;
     street: string;
     number: string;
@@ -6,4 +7,5 @@ export default interface Property {
     district: string;
     city: string;
     state: string;
+    contract: Object;
 }
