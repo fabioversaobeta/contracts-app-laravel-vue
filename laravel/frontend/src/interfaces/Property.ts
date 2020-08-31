@@ -1,3 +1,10 @@
+interface ContractData {
+    id: String;
+    contractor_id: String;
+    created_at: String;
+    updated_at: String;
+}
+
 export default interface Property {
     id: string;
     email: string;
@@ -7,5 +14,5 @@ export default interface Property {
     district: string;
     city: string;
     state: string;
-    contract: Record<string, any>;
+    contract: ContractData | null;
 }

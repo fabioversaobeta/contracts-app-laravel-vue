@@ -1,12 +1,16 @@
 // state
 const state = () => ({
-    showModalProperty: false
+    showModalProperty: false,
+    showModalRemoveProperty: false
 });
 
 // getters
 const getters = {
     getShowModalProperty(state) {
         return state.showModalProperty;
+    },
+    getShowModalRemoveProperty(state) {
+        return state.showModalRemoveProperty;
     }
 };
 
@@ -14,6 +18,9 @@ const getters = {
 const mutations = {
     setShowModalProperty(state, showModalProperty: boolean) {
         state.showModalProperty = showModalProperty;
+    },
+    setShowModalRemoveProperty(state, showModalRemoveProperty: boolean) {
+        state.showModalRemoveProperty = showModalRemoveProperty;
     }
 };
 
@@ -23,6 +30,11 @@ const actions = {
         const showModal = context.state.showModalProperty;
 
         context.commit("setShowModalProperty", !showModal);
+    },
+    toggleShowModalRemoveProperty(context) {
+        const showModal = context.state.showModalRemoveProperty;
+
+        context.commit("setShowModalRemoveProperty", !showModal);
     }
 };
 

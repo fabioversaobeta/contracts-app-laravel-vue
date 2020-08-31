@@ -3,7 +3,7 @@
         <div class="content">
             <div id="nav">
                 <router-link to="/">Imóveis</router-link> |
-                <router-link to="/about">Contratos</router-link>
+                <router-link to="/about">About</router-link>
             </div>
         </div>
     </div>

@@ -11,8 +11,11 @@
             <tbody>
                 <tr v-for="(item, itemIndex) in itemsOrdered" :key="itemIndex">
                     <td v-for="(value, valueIndex) in item" :key="valueIndex">
-                        <div v-if="value === 'delete'" class="td">
-                            <button type="button">
+                        <div v-if="value === 'delete_property'" class="td">
+                            <button
+                                type="button"
+                                @click="remover(itemIndex)"
+                            >
                                 <v-icon name="trash-2"></v-icon>
                             </button>
                         </div>
@@ -25,6 +28,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
     name: "Table",
     props: {
@@ -37,12 +42,17 @@ export default {
             strOrdem: ""
         };
     },
-    mounted: function() {
-        this.itemsOrdered = this.items;
-    },
+    // mounted: function() {
+    //     this.itemsOrdered = this.items;
+    // },
     methods: {
+        ...mapActions("property", ["forDelete"]),
+        ...mapActions("modal", ["toggleShowModalRemoveProperty"]),
+        remover: function(index) {
+            this.forDelete(index);
+            this.toggleShowModalRemoveProperty();
+        },
         ordenar: function(field) {
-            console.log('ordenar', field);
             if (field == this.strOrdem) this.items.reverse();
             else {
                 this.itemsOrdered.sort((e1, e2) => {
@@ -51,8 +61,6 @@ export default {
                 this.itemsOrdered.reverse();
             }
             this.strOrdem = field;
-            console.log('fim ordenar', this.strOrdem);
-            console.log('fim ordenar  this.items',  this.items);
         },
         battleOfOrder: function(str1, str2) {
             const split1 = str1.toLowerCase().split(" ");
@@ -96,6 +104,11 @@ export default {
             });
 
             return score.a > score.b ? -1 : score.a < score.b ? 1 : 0;
+        }
+    },
+    watch: {
+        items: function() {
+            this.itemsOrdered = this.items;
         }
     }
 };

@@ -4,7 +4,7 @@
             <div class="modal-wrapper">
                 <div class="modal-container">
                     <div class="close">
-                        <button @click="toggleShowModalProperty">
+                        <button @click="toggleShowModal">
                             X
                         </button>
                     </div>
@@ -30,6 +30,9 @@ import { mapActions } from "vuex";
 
 export default {
     name: "Modal",
+    props: {
+        toggleShowModal: Function
+    },
     methods: {
         ...mapActions("modal", ["toggleShowModalProperty"])
     }

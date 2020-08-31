@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import upperFirst from "lodash/upperFirst";
 
 export default {
     props: {
