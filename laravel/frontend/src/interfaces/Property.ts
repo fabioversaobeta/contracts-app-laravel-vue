@@ -7,5 +7,5 @@ export default interface Property {
     district: string;
     city: string;
     state: string;
-    contract: Object;
+    contract: Record<string, any>;
 }

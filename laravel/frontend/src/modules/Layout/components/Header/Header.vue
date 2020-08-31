@@ -22,14 +22,12 @@
 </style>
 
 <script lang="ts">
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
     name: "Header",
     methods: {
-        ...mapActions('modal', [
-            'toggleShowModalProperty'
-        ])
+        ...mapActions("modal", ["toggleShowModalProperty"])
     }
 };
 </script>

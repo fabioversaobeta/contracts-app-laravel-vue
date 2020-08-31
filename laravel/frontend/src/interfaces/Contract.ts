@@ -1,5 +1,5 @@
-import Property from './Property'
-import Contractor from './Contractor'
+import Property from "./Property";
+import Contractor from "./Contractor";
 
 export default interface Contract {
     id: string;

@@ -9,9 +9,10 @@ const routes: Array<RouteConfig> = [
         path: "/",
         name: "Dashboard",
         // component: Dashboard
-        component: () => import(
-            /* webpackChunkName: "dashboard" */ "../views/Dashboard/Dashboard.vue"
-        )
+        component: () =>
+            import(
+                /* webpackChunkName: "dashboard" */ "../views/Dashboard/Dashboard.vue"
+            )
     },
     {
         path: "/about",

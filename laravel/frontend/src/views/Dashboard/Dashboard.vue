@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import Table from '@/components/Table/Table'
-import Modal from '@/components/Modal/Modal'
-import FormAddProperty from '@/modules/Property/components/FormAddProperty/FormAddProperty'
-import { mapGetters, mapActions } from 'vuex'
+import Table from "@/components/Table/Table";
+import Modal from "@/components/Modal/Modal";
+import FormAddProperty from "@/modules/Property/components/FormAddProperty/FormAddProperty";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
     name: "Dashboard",
@@ -23,32 +23,23 @@ export default {
     },
     data() {
         return {
-            headers: ['Email', 'Endereco', 'Status', 'Ações']
+            headers: ["Email", "Endereco", "Status", "Ações"]
         };
     },
-    mounted () {
-        this.fetchProperties()
+    mounted() {
+        this.fetchProperties();
     },
     computed: {
-        ...mapGetters('property', {
-            properties: 'getPropertiesItems'
-        }),
-        ...mapGetters('modal', {
-            showModal: 'getShowModalProperty'
-        })
+        ...mapGetters("property", { properties: "getPropertiesItems" }),
+        ...mapGetters("modal", { showModal: "getShowModalProperty" })
     },
     methods: {
-        ...mapActions('property', [
-            'fetchProperties'
-        ]),
-        ...mapActions('modal', [
-            'toggleShowModalProperty'
-        ])
+        ...mapActions("property", ["fetchProperties"]),
+        ...mapActions("modal", ["toggleShowModalProperty"])
     }
 };
 </script>
 
-
 <style lang="sass">
-  @import "./Dashboard.scss"
+@import "./Dashboard.scss"
 </style>

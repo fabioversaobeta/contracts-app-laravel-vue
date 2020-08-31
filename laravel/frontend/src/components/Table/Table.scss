@@ -15,6 +15,7 @@
       padding: 8px;
       margin: 3px;
       font-size: 12px;
+      cursor: pointer;
     }
 
     .td {
@@ -31,6 +32,7 @@
 
       .error {
           color: red;
+          border: none !important;
       }
     }
 

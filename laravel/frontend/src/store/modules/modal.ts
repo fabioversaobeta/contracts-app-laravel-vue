@@ -1,37 +1,35 @@
-import Property from '@/interfaces/Property'
-
 // state
 const state = () => ({
-  showModalProperty: false
-})
+    showModalProperty: false
+});
 
 // getters
 const getters = {
-  getShowModalProperty (state: any) {
-    return state.showModalProperty
-  }
-}
+    getShowModalProperty(state) {
+        return state.showModalProperty;
+    }
+};
 
 // mutations
 const mutations = {
-  setShowModalProperty (state: any, showModalProperty: boolean) {
-    state.showModalProperty = showModalProperty
-  }
-}
+    setShowModalProperty(state, showModalProperty: boolean) {
+        state.showModalProperty = showModalProperty;
+    }
+};
 
 // actions
 const actions = {
-  toggleShowModalProperty (context: any) {
-    const showModal = context.state.showModalProperty
+    toggleShowModalProperty(context) {
+        const showModal = context.state.showModalProperty;
 
-    context.commit('setShowModalProperty', !showModal)
-  }
-}
+        context.commit("setShowModalProperty", !showModal);
+    }
+};
 
 export default {
-  namespaced: true,
-  state,
-  getters,
-  mutations,
-  actions
-}
+    namespaced: true,
+    state,
+    getters,
+    mutations,
+    actions
+};

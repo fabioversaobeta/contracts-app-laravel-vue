@@ -26,17 +26,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
-    name: 'Modal',
+    name: "Modal",
     methods: {
-        ...mapActions('modal', ['toggleShowModalProperty'])
+        ...mapActions("modal", ["toggleShowModalProperty"])
     }
-}
+};
 </script>
 
 <style lang="sass">
-  @import "./Modal.scss"
+@import "./Modal.scss"
 </style>
-

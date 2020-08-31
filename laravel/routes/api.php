@@ -18,24 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// $router->group(['prefix' => 'contract'], function() use ($router) {
-//     $router->get('contracts', 'ContractController@index');
-//     $router->post('contract', 'ContractController@create');
-//     $router->delete('contract', 'ContractController@delete');
-// });
-
-$router->group(['prefix' => 'contractor'], function() use ($router) {
-    $router->get('/', 'ContractController@show');
-    $router->get('/{id}', 'ContractController@findById');
-    $router->post('/find', 'ContractController@find');
-    $router->post('/', 'ContractController@create');
-    $router->delete('/{id}', 'ContractController@delete');
-});
-
-$router->group(['prefix' => 'property'], function() use ($router) {
-    $router->get('/', 'PropertyController@show');
-    // $router->get('/{id}', 'PropertyController@findById');
-    // $router->post('/find', 'PropertyController@find');
-    $router->post('/', 'PropertyController@create');
-    $router->post('/delete/{id}', 'PropertyController@drop');
+Route::group(['middleware' => 'cors'], function () {
+    Route::get('/property', 'PropertyController@show');
+    Route::post('/property', 'PropertyController@create');
+    Route::delete('/property/{id}', 'PropertyController@delete');
+    Route::put('/property/{id}/setContract/', 'PropertyController@setContract');
 });

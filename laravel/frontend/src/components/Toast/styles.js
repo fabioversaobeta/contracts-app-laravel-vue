@@ -1,4 +1,4 @@
-import styled from 'vue-styled-components'
+import styled from "vue-styled-components";
 
 export const Container = styled.div`
     position: absolute;
@@ -10,17 +10,17 @@ export const Container = styled.div`
     overflow: hidden;
 
     .info {
-      background: #ebf8ff;
-      color: #3172b7;
+        background: #ebf8ff;
+        color: #3172b7;
     }
 
     .success {
-      background: #e6fffa;
-      color: #2a656a;
+        background: #e6fffa;
+        color: #2a656a;
     }
 
     .error {
-      background: #fddede;
-      color: #c53030;
+        background: #fddede;
+        color: #c53030;
     }
-`
+`;

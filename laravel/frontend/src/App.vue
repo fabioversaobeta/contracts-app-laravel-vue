@@ -12,7 +12,7 @@
 import Header from "@/modules/Layout/components/Header/Header";
 import Breadcrumb from "@/modules/Layout/components/Breadcrumb/Breadcrumb";
 
-import Toast from '@/components/Toast/Toast';
+import Toast from "@/components/Toast/Toast";
 
 export default {
     name: "App",
@@ -38,5 +38,4 @@ export default {
     text-align: center;
     color: #2c3e50;
 }
-
 </style>

@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
-$router->group(['middleware' => 'cors', 'prefix' => 'property'], function() use ($router) {
-    $router->get('/', 'PropertyController@show');
-    $router->post('/', 'PropertyController@create');
-    $router->delete('/{id}', 'PropertyController@delete');
-    $router->put('/{id}/setContract/', 'PropertyController@setContract');
+$router->group(['middleware' => 'cors'], function() use ($router) {
+    $router->get('/property', 'PropertyController@show');
+    $router->post('/property', 'PropertyController@create');
+    $router->delete('/property/{id}', 'PropertyController@delete');
+    $router->put('/property/{id}/setContract/', 'PropertyController@setContract');
 });
 
 $router->group(['middleware' => 'cors', 'prefix' => 'contractor'], function() use ($router) {
