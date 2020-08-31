@@ -6,7 +6,7 @@
                 <span class="name">User</span>
             </div>
             <div class="buttons">
-                <button class="new-order">
+                <button class="new-order" @click="toggleShowModalProperty">
                     <v-icon name="plus-circle"></v-icon> Novo Imóvel
                 </button>
                 <!-- <button class="new-product" v-if="$route.name === 'Products'">
@@ -22,8 +22,14 @@
 </style>
 
 <script lang="ts">
+import { mapActions } from 'vuex'
+
 export default {
     name: "Header",
-    methods: {}
+    methods: {
+        ...mapActions('modal', [
+            'toggleShowModalProperty'
+        ])
+    }
 };
 </script>

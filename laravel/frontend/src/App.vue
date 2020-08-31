@@ -4,6 +4,7 @@
         <Breadcrumb />
 
         <router-view />
+        <Toast />
     </div>
 </template>
 
@@ -11,11 +12,14 @@
 import Header from "@/modules/Layout/components/Header/Header";
 import Breadcrumb from "@/modules/Layout/components/Breadcrumb/Breadcrumb";
 
+import Toast from '@/components/Toast/Toast';
+
 export default {
     name: "App",
     components: {
         Header,
-        Breadcrumb
+        Breadcrumb,
+        Toast
     },
     data() {
         return {};
